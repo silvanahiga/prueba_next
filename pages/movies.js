@@ -23,6 +23,18 @@ class Movies extends React.Component {
     return (
       <div>
         <p>movie</p>
+        {this.props.movies.map((m)=>
+        
+        <div>
+
+<p>{m.id}</p>
+<p>{m.name}</p>
+<img src={"https://image.tmdb.org/t/p/w370_and_h556_bestv2/" + m.poster_path}/>
+
+        </div>
+        
+        
+        )}
 
 
       </div>
