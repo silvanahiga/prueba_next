@@ -12,7 +12,7 @@ const path = require("path");
 
 app.prepare().then(() => {
   const server = express();
-
+////caca
   server.use(compression());
   server.use(express.static(__dirname + "/static", { maxAge: 86400000 }));
   server.use(bodyParser.json());
