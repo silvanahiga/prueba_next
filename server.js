@@ -12,12 +12,17 @@ const path = require("path");
 
 app.prepare().then(() => {
   const server = express();
-////caca
+
   server.use(compression());
   server.use(express.static(__dirname + "/static", { maxAge: 86400000 }));
   server.use(bodyParser.json());
   server.use(bodyParser.urlencoded({ extended: false }));
   server.use(cookieParser());
+
+
+  server.get("movie/:item", (req, res) => {
+    return app.render(req, res, "/movie", req.query);
+  });
 
   server.get("*", (req, res) => {
     return handle(req, res);
