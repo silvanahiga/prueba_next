@@ -20,8 +20,12 @@ app.prepare().then(() => {
   server.use(cookieParser());
 
 
-  server.get("movie/:item", (req, res) => {
-    return app.render(req, res, "/movie", req.query);
+  server.get("movie/:id", (req, res) => {
+    return app.render(req, res, "/movies", req.query);
+  });
+
+  server.get("/", (req, res) => {
+    return app.render(req, res, "/home", req.query);
   });
 
   server.get("*", (req, res) => {
